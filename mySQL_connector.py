@@ -12,11 +12,11 @@ def add_person():
     dob = input("DateOfBirth [MMDDYYYY]: ")
 
     val = (firstname, lastname, ssn, address, dob)
-    mycursor.execute(sql, val)
+    pharmCursor.execute(sql, val)
 
-    mydb.commit()
+    pharmacydb.commit()
 
-    print(mycursor.rowcount, "record inserted.")
+    print(pharmCursor.rowcount, "record inserted.")
 
 
 def get_person():
@@ -25,8 +25,8 @@ def get_person():
     sql = "SELECT * FROM person WHERE FirstName='" + \
         firstname + "' AND DateOfBirth='" + dob + "'"
 
-    mycursor.execute(sql)
-    result = mycursor.fetchall()
+    pharmCursor.execute(sql)
+    result = pharmCursor.fetchall()
 
     for x in result:
         print(x)
@@ -39,26 +39,26 @@ def update_person():
     sql = "UPDATE person SET DateOfBirth='" + new_dob + "' WHERE FirstName='" + \
         firstname + "' AND DateOfBirth='" + current_dob + "'"
     
-    mycursor.execute(sql)
-    mydb.commit()
-    print(mycursor.rowcount, "record(s) affected")
+    pharmCursor.execute(sql)
+    pharmacydb.commit()
+    print(pharmCursor.rowcount, "record(s) affected")
 
 
-mydb = mysql.connector.connect(
+pharmacydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="gamer",
     database="part"
 )
 
-print(mydb)
+print(pharmacydb)
 
-mycursor = mydb.cursor()
+pharmCursor = pharmacydb.cursor()
 
-mycursor.execute("SHOW TABLES")
+pharmCursor.execute("SHOW TABLES")
 
 print("Tables available:")
-for x in mycursor:
+for x in pharmCursor:
     print(x)
 
 while (1 == 1):
@@ -69,7 +69,3 @@ while (1 == 1):
         get_person()
     elif (user_input == '3'):
         update_person()
-
-
-# add_person()
-# get_person()
