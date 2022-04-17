@@ -23,10 +23,10 @@ def add_person():
 def get_person():
     firstname = input("FirstName: ")
     dob = input("DateOfBirth [MMDDYYYY]: ")
-    sql = "SELECT * FROM person WHERE FirstName='" + \
-          firstname + "' AND DateOfBirth='" + dob + "'"
+    sql = "SELECT * FROM person WHERE FirstName='%s' AND DateOfBirth='%s'"
+    val = (firstname, dob)
 
-    mycursor.execute(sql)
+    mycursor.execute(sql, val)
     result = mycursor.fetchall()
 
     for x in result:
@@ -39,6 +39,7 @@ def update_person():
     new_dob = input("Input New DateOfBirth [MMDDYYYY]: ")
     sql = "UPDATE person SET DateOfBirth='" + new_dob + "' WHERE FirstName='" + \
           firstname + "' AND DateOfBirth='" + current_dob + "'"
+
 
     mycursor.execute(sql)
     pharmacydb.commit()
