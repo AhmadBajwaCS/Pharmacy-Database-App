@@ -4,7 +4,7 @@ import mysql.connector
 def get_person():
     firstname = input("FirstName: ")
     dob = input("DateOfBirth [MMDDYYYY]: ")
-    sql = "SELECT * FROM person WHERE FirstName='%s' AND DateOfBirth='%s'"
+    sql = "SELECT * FROM person WHERE FirstName=%s AND DateOfBirth=%s"
     val = (firstname, dob)
 
     pharmCursor.execute(sql, val)
