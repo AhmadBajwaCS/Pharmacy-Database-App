@@ -18,7 +18,6 @@ def add_person():
 
     print(pharmCursor.rowcount, "record inserted.")
 
-
 def get_person():
     firstname = input("FirstName: ")
     dob = input("DateOfBirth [MMDDYYYY]: ")
@@ -43,7 +42,7 @@ def update_person():
     pharmacydb.commit()
     print(pharmCursor.rowcount, "record(s) affected")
 
-
+    
 pharmacydb = mysql.connector.connect(
     host="localhost",
     user="root",
