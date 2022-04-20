@@ -18,7 +18,7 @@ USE `part`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `customer`
+-- Table structure for table `customer` 
 --
 
 DROP TABLE IF EXISTS `customer`;
