@@ -7,6 +7,11 @@ function App() {
       <header className="App-header">
         <h1>Pharmacy DB</h1>
         <button class="button">Search the database</button>
+        <button class="button">Log prescription</button>
+        <button class="button">Track active prescriptions</button>
+        <button class="button">View drug inventory</button>
+        <button class="button">Add new customer</button>
+        <button class="button">Quit</button>
         <p>
           Pharmacy DB
         </p>

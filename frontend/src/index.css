@@ -22,7 +22,7 @@ h1 {
 /* CSS */
 .button {
   background-color: #4caf4f00;
-  border: none;
+  border:  none;
   color: white;
   
   text-align: center;
@@ -39,5 +39,6 @@ h1 {
 }
 
 .button:hover {
+  text-underline-offset: 7px;
   text-decoration-line: underline;
 }
