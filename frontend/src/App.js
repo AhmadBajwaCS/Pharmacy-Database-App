@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <body className="App-body">
         <h1>Pharmacy DB  &emsp;  &ensp;    </h1>
         <button class="button">Search the database</button>
         <button class="button">Log prescription</button>
@@ -12,8 +12,8 @@ function App() {
         <button class="button">View drug inventory</button>
         <button class="button">Add new customer</button>
         <button class="button">Quit</button>
-      </header>
-
+      </body>
+      
     </div>
   );
 }
