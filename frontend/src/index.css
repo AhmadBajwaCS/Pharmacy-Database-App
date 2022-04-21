@@ -14,8 +14,8 @@ code {
 
 h1 {
   color:rgb(111, 223, 111);
-  text-underline-offset: 15px;
-  text-decoration:  underline white 3px;
+  text-underline-offset: 30px;
+  text-decoration:  underline white 2px;
   
 }
 
@@ -24,21 +24,48 @@ h1 {
   background-color: #4caf4f00;
   border:  none;
   color: white;
-  
-  text-align: center;
+  animation: slide 2s infinite;
+  animation-iteration-count: 1;
+  align-items: left;
+  text-align: left;
   text-decoration: none;
   display: inline-block;
   font-size: 30px;
   margin: 4px 2px;
+
   cursor: pointer;
 }
 
-.button:focus {
-  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
-  outline: 0;
-}
 
 .button:hover {
   text-underline-offset: 7px;
   text-decoration-line: underline;
 }
+
+.button:active {
+  background-color: #2421219f;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+@keyframes appear{
+  0%{opacity: 0;}
+  20%{opacity: 1;}
+  80%{opacity: 1;}
+  100%{opacity: 0;}
+}
+
+
+@keyframes reveal{
+  0%{opacity: 0; width: 0px;}
+  20%{opacity: 1; width: 0px;}
+  30%{width: 655px;}
+  80%{opacity: 1;}
+  100%{opacity: 0; width: 655px;}
+}
+
+@keyframes slide{
+  0%{margin-left:-2000px;}
+100%{margin-left:0px;}
+}
+
