@@ -64,7 +64,9 @@ h1 {
 }
 
 @keyframes slide{
-  0%{margin-left:-2000px;}
-100%{margin-left:0px;}
+  0%{margin-left:-1000px; opacity: 0;}
+  20%{opacity: 0;}
+  70%{opacity: 1;}
+100%{margin-left:0px; opacity: 1;}
 }
 
