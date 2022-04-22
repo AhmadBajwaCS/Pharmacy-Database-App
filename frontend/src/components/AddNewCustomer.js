@@ -14,7 +14,7 @@ function AddNewCustomer(props) {
         [])
 
     return (
-        <div>
+        <div className="newCus">
             {postList.map((val,key)=>{
                 return (
                 <div className="Post">
