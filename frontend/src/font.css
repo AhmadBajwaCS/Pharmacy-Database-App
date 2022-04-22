@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Acumin Pro Semibold';
+    src: local('Acumin Pro Semibold'), url('./fonts/AcuminProSemibold.ttf') format('tff');
+}
+
+@font-face {
+    font-family: 'RobotoMono';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;1,300&display=swap');
+}
