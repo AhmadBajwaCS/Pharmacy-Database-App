@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import Axios from 'axios'
 import {useHistory} from 'react-router-dom'
+import './AddNewCustomer.css';
 
 function AddNewCustomer(props) {
 
@@ -23,6 +24,18 @@ function AddNewCustomer(props) {
                 </div>
                 )  
             })}
+            <form>
+                First Name:<br></br>
+                    <input type="text" name="fname" /> <br></br>
+                Last Name:  <br></br>
+                    <input type="text" name="lname" /> <br></br>
+                Date of Birth:<br></br>
+                <input type="text" name="dob" /> <br></br>
+                Address  <br></br>
+                <input type="text" name="address" /> <br></br>
+                SSN  <br></br>
+                <input type="text" name="ssn" /> <br></br>
+            </form>
         </div>
     );
 }
