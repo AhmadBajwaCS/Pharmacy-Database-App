@@ -8,14 +8,19 @@ import {Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App-body">
+      <div>
 
-        <Route path="/" exact component={HomePageButtons} />
-        <Route path="/new" exact component={AddNewCustomer} />
-        <Route path="/log" exact component={LogPrescription} />
-        <Route path="/table" exact component={Table} />
+          <div>
 
-    </div>
+              <Route path="/" exact component={HomePageButtons} />
+              <Route path="/new" exact component={AddNewCustomer} />
+              <Route path="/log" exact component={LogPrescription} />
+              <Route path="/table" exact component={Table} />
+
+          </div>
+
+
+      </div>
   );
 }
 
