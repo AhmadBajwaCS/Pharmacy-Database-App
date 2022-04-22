@@ -2,7 +2,7 @@ import React from 'react';
 
 function Table(props) {
     return (
-        <div>
+        <div className="table">
             This is the table
         </div>
     );
