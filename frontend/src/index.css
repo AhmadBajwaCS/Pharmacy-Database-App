@@ -35,6 +35,11 @@ h1 {
   cursor: pointer;
 }
 
+.table {
+  background-color: lightgray;
+
+}
+
 
 .button:hover {
   text-underline-offset: 7px;
