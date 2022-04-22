@@ -15,6 +15,7 @@ code {
 h1 {
   color:rgb(111, 223, 111);
   text-underline-offset: 30px;
+  font-size: 60px;
   text-decoration:  underline white 2px;
   
 }

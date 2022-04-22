@@ -3,11 +3,13 @@ import './LogPrescription.css';
 
 function LogPrescription(props) {
     return (
-        <div>
-            <form>
-                <div className="helmet">
+        <div className="log-body">
+            <div className="helmet">
+                test
+            </div>
 
-                </div>
+            <form className="frm1">
+
 
                 <br/>
 
