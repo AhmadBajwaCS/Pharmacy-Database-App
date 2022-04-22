@@ -5,7 +5,7 @@ function LogPrescription(props) {
     return (
         <div className="log-body">
             <div className="helmet">
-                test
+                test <br/>
             </div>
 
             <form className="frm1">
