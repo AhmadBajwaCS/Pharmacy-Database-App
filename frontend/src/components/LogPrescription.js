@@ -5,6 +5,11 @@ function LogPrescription(props) {
     return (
         <div>
             <form>
+                <div className="helmet">
+
+                </div>
+
+                <br/>
 
                 Date of Birth:<br></br>
                 <input type="text" name="dob" /> <br></br>
