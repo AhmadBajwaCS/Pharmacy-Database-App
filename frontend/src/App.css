@@ -1,6 +1,4 @@
-.App {
-
-}
+.App {}
 
 .App-body {
     background-color: #282c34;
@@ -20,11 +18,13 @@ body {
 }
 
 h1 {
-    font-family: 'Acumin Pro Semibold';
+    font-family: 'Rubik', sans-serif;
+    ;
 }
 
 .App-Header {
-    font-family: 'Acumin Pro Semibold';
+    font-family: 'Rubik', sans-serif;
+    ;
 }
 
 button {
