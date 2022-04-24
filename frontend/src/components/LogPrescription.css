@@ -40,6 +40,8 @@
 
 .frm-contents{
 
+    animation: slide 2s infinite;
+    animation-iteration-count: 1;
     position: relative;
     font-size: 2vh;
     display: flex;

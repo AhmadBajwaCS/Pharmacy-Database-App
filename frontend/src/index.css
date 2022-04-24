@@ -28,10 +28,7 @@ h1 {
   color: white;
   animation: slide 2s infinite;
   animation-iteration-count: 1;
-  align-items: center;
-  text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 30px;
   margin: 4px 2px;
   cursor: pointer;
@@ -42,6 +39,9 @@ h1 {
 
 }
 
+.Link{
+  text-align: center;
+}
 
 .button:hover {
   text-underline-offset: 7px;
@@ -72,8 +72,7 @@ h1 {
 
 @keyframes slide{
   0%{margin-left:-1000px; opacity: 0;}
-  20%{opacity: 0;}
-  70%{opacity: 1;}
+
 100%{margin-left:0px; opacity: 1;}
 }
 
