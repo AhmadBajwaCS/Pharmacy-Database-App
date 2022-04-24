@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function HomePageButtons(props) {
   return (
     <div className="homeDiv">
-      <h1>&emsp; Pharmacy DB &emsp; </h1>
+      <h1 className="head">&emsp; Pharmacy DB &emsp; </h1>
       <Link to="/search">
         <button className="button">Search the database</button>
       </Link>

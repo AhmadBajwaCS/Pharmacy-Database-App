@@ -14,16 +14,22 @@
 }
 
 body {
+    background-color: #282c34;
     font-family: 'Roboto Mono', monospace;
 }
 
-h1 {
+.h1{
     font-family: 'Rubik', sans-serif;
+    position: static;
+    color:rgb(111, 223, 111);
+    text-underline-offset: 30px;
+    font-size: 60px;
+    text-decoration:  underline;
 }
 
 .App-Header {
     font-family: 'Rubik', sans-serif;
-    ;
+
 }
 
 button {

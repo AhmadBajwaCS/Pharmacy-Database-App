@@ -24,7 +24,22 @@
 }
 
 .frm1 {
+    animation: slide 2s infinite;
+    animation-iteration-count: 1;
+
     background: #282828;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 90vw;
+    top: 7vh;
+    left: 5vw;
+}
+
+.frm-contents{
+
     position: relative;
     font-size: 2vh;
     display: flex;
@@ -32,13 +47,11 @@
     align-items: center;
     flex-direction: column;
     vertical-align: middle;
-    height: 70vh;
-    width: 90vw;
-    top: 7vh;
-    left: 5vw;
+
 }
 
 input[type=text] {
+
     font-size: large;
     color: white;
     text-align: center;
@@ -52,15 +65,19 @@ input[type=text] {
 }
 
 input[type=submit] {
-    width: 10%;
-    padding: 0.4vh 10px;
+
+
+    width: 40%;
+    font-size: 2vh;
+    padding: 0.4vh 1vh;
     margin: 0.7vh 0;
     box-sizing: border-box;
 }
 
 select {
-    width: 39%;
-    padding: 0.4vh 10px;
+
+    width: 58%;
+    padding: 0.4vh 1vh;
     margin: 0.7vh 0;
     box-sizing: border-box;
 }
@@ -81,9 +98,9 @@ h2 {
 
 h1 {
     font-family: 'Rubik', sans-serif;
-    position: static;
-    color: rgb(255, 255, 255);
-    font-size: 60px;
+    position: sticky;
+    color: #282828;
+    font-size: 7vh;
     text-decoration: none;
     padding-left: 12px;
 }
