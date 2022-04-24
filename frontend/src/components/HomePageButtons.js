@@ -1,13 +1,7 @@
 import React from "react";
-import react, {useEffect} from "react";
 import "./HomePageButtons.css";
 import { Link } from "react-router-dom";
 
-const closeTab = () => {
-  window.opener = null;
-  window.open("","_self");
-  window.close();
-};
 function HomePageButtons(props) {
 
   return (

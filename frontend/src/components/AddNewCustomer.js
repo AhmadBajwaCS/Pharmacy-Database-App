@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import './AddNewCustomer.css';
+import './LogPrescription.css';
 
 function AddNewCustomer(props) {
 
@@ -31,11 +32,21 @@ function AddNewCustomer(props) {
     }
 
     return (
-        <div>
-            <div className="newCus">
+        <div className='newCus'>
+
+            <div className="helmet">
+              <h1 className='header'> PHARMACY DB</h1><br/>
+            </div>
+
                 
-                <form>
-                    <label>First Name: </label>
+                <form className='frm1'>
+                    <div className='frm-contents'>
+                    <h2>
+                        &emsp; Add New Customer &emsp;
+                    </h2>
+                    <br/>
+
+                   First Name: <br></br>
                     <input 
                         type="text" 
                         name="fnamein"
@@ -43,7 +54,7 @@ function AddNewCustomer(props) {
                     />
                     <br></br>
 
-                    <label>Last Name: </label>
+                    Last Name: <br></br>
                     <input 
                         type="text" 
                         name="lnamein" 
@@ -51,7 +62,7 @@ function AddNewCustomer(props) {
                     />
                     <br></br>
                     
-                    <label>Date of Birth: </label>
+                    Date of Birth: <br></br>
                     <input 
                         type="text" 
                         name="dobin" 
@@ -59,7 +70,7 @@ function AddNewCustomer(props) {
                     />
                     <br></br>
 
-                    <label>Address:</label>
+                    Address:<br></br>
                     <input 
                         type="text" 
                         name="addressin" 
@@ -67,7 +78,7 @@ function AddNewCustomer(props) {
                     />
                     <br></br>
                     
-                    <label>SSN:</label>
+                    SSN:<br></br>
                     <input 
                         type="text" 
                         name="ssnin" 
@@ -76,12 +87,10 @@ function AddNewCustomer(props) {
                     <br></br>
                     <br></br>
                     
-                    <div>
-                        <button onClick={submitCustomer}>ADD CUSTOMER</button>
+                    <input type="submit" value="Submit"/>
                     </div>
                 </form>
                 
-            </div>
             <div className='currentCustomerList'>
                 {postList.map((val,key)=>{ return (
                     <div className="Post">
