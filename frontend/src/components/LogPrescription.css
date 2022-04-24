@@ -1,46 +1,41 @@
-
-.log-body{
+.log-body {
     background-color: #282c34;
     min-height: 100vh;
     justify-content: center;
-
     /*font-size: calc(10px + 2vmin);*/
     color: white;
 }
 
-.helmet{
-
+.helmet {
     background-color: rgb(111, 223, 111);
     border-radius: 5px;
     color: #282c34;
     position: relative;
     width: 90vw;
     height: 8vh;
-    top : 5vh;
+    top: 5vh;
     left: 5vw;
     right: 1vw;
-    align-items: center; /* Vertical center alignment */
+    align-items: center;
+    /* Vertical center alignment */
     vertical-align: middle;
     font-size: 7vh;
     z-index: 99;
 }
 
-.frm1{
-
+.frm1 {
     background: #282828;
     position: relative;
     font-size: 2vh;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     vertical-align: middle;
     height: 70vh;
     width: 90vw;
-    top : 7vh;
+    top: 7vh;
     left: 5vw;
-
-
 }
 
 input[type=text] {
@@ -54,31 +49,41 @@ input[type=text] {
     padding: 0.4vh 13vh;
     border-radius: 5px;
     margin: 0.7vh 0;
-
 }
 
 input[type=submit] {
-
-
     width: 10%;
     padding: 0.4vh 10px;
     margin: 0.7vh 0;
     box-sizing: border-box;
 }
 
-.bg{
+select {
+    width: 39%;
+    padding: 0.4vh 10px;
+    margin: 0.7vh 0;
+    box-sizing: border-box;
+}
+
+.bg {
     background-color: #282c34;
     min-height: 100vh;
     position: fixed;
-
 }
 
 h2 {
     position: relative;
-    color:rgb(111, 223, 111);
+    color: rgb(111, 223, 111);
     text-underline-offset: 3vh;
     font-size: 5vh;
-    text-decoration:  underline white 2px;
-
+    text-decoration: underline white 2px;
 }
 
+h1 {
+    font-family: 'Rubik', sans-serif;
+    position: static;
+    color: rgb(255, 255, 255);
+    font-size: 60px;
+    text-decoration: none;
+    padding-left: 12px;
+}

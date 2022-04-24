@@ -10,7 +10,7 @@ function AddNewCustomer(props) {
     let history = useHistory();
 
     useEffect(
-        ()=>{Axios.get("http://localhost:3002/api/get").then((data)=>{setPostList(data.data)});},
+        ()=>{Axios.get("http://localhost:3002/api/getPeople").then((data)=>{setPostList(data.data)});},
         [])
 
 
