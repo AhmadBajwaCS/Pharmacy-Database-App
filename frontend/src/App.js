@@ -5,6 +5,7 @@ import AddNewCustomer from './components/AddNewCustomer'
 import LogPrescription from './components/LogPrescription'
 import Table from './components/Table'
 import {Route} from 'react-router-dom'
+import Quit from './components/Quit'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path="/new" exact component={AddNewCustomer} />
               <Route path="/log" exact component={LogPrescription} />
               <Route path="/table" exact component={Table} />
+              <Route path="/quit" exact component={Quit} />
 
           </div>
 

@@ -1,8 +1,15 @@
 import React from "react";
+import react, {useEffect} from "react";
 import "./HomePageButtons.css";
 import { Link } from "react-router-dom";
 
+const closeTab = () => {
+  window.opener = null;
+  window.open("","_self");
+  window.close();
+};
 function HomePageButtons(props) {
+
   return (
     <div className="homeDiv">
       <h1 className="head">&emsp; Pharmacy DB &emsp; </h1>
@@ -21,7 +28,9 @@ function HomePageButtons(props) {
       <Link to="/new">
         <button className="button">Add new customer</button>
       </Link>
+      <Link to ="/quit">
       <button className="button">Quit</button>
+      </Link>
     </div>
   );
 }
