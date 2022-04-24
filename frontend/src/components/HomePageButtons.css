@@ -10,6 +10,15 @@
     color: white;
 }
 
+.head{
+    font-family: 'Rubik', sans-serif;
+    position: static;
+    color:rgb(111, 223, 111);
+    text-underline-offset: 30px;
+    font-size: 60px;
+    text-decoration:  underline white 2px;
+}
+
 .buttonsMenu{
     justify-content: left;
 }

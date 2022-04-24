@@ -8,7 +8,7 @@ import {Route} from 'react-router-dom'
 
 function App() {
   return (
-      <div>
+      <body>
 
           <div>
 
@@ -20,7 +20,7 @@ function App() {
           </div>
 
 
-      </div>
+      </body>
   );
 }
 

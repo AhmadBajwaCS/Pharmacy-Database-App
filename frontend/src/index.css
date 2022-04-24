@@ -13,12 +13,12 @@ code {
 }
 
 h1 {
+  font-family: 'Rubik', sans-serif;
   position: static;
   color:rgb(111, 223, 111);
   text-underline-offset: 30px;
   font-size: 60px;
   text-decoration:  underline white 2px;
-  
 }
 
 /* CSS */
@@ -28,8 +28,8 @@ h1 {
   color: white;
   animation: slide 2s infinite;
   animation-iteration-count: 1;
-  align-items: left;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 30px;
