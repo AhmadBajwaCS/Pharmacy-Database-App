@@ -8,6 +8,7 @@ const closeTab = () => {
   window.open("","_self");
   window.close();
 };
+
 function HomePageButtons(props) {
 
   return (
