@@ -43,6 +43,10 @@ h1 {
   text-align: center;
 }
 
+.no-text-decoration {
+  text-decoration: none;
+}
+
 .button:hover {
   text-underline-offset: 7px;
   text-decoration-line: underline;
