@@ -10,16 +10,15 @@ import Quit from './components/Quit'
 function App() {
   return (
       <body>
+              <div>
 
-          <div>
+                  <Route path="/" exact component={HomePageButtons} />
+                  <Route path="/new" exact component={AddNewCustomer} />
+                  <Route path="/log" exact component={LogPrescription} />
+                  <Route path="/table" exact component={Table} />
+                  <Route path="/quit" exact component={Quit} />
 
-              <Route path="/" exact component={HomePageButtons} />
-              <Route path="/new" exact component={AddNewCustomer} />
-              <Route path="/log" exact component={LogPrescription} />
-              <Route path="/table" exact component={Table} />
-              <Route path="/quit" exact component={Quit} />
-
-          </div>
+              </div>
 
       </body>
   );
