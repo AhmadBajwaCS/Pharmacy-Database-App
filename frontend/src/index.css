@@ -13,6 +13,7 @@ code {
 }
 
 h1 {
+  position: static;
   color:rgb(111, 223, 111);
   text-underline-offset: 30px;
   font-size: 60px;
