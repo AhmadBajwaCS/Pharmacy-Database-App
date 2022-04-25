@@ -1,3 +1,26 @@
+.table-container {
+    position: relative;
+    background-color: white; 
+    display: flex;
+    flex-direction: column;   
+}
+
+.pharm-header{
+    background-color: rgb(111, 223, 111);
+    border-radius: 5px;
+    color: #282c34;
+    position: absolute;
+    width: 90vw;
+    height: 8vh;
+    top: 5vh;
+    left: 5vw;
+    right: 1vw;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 7vh;
+    z-index: 99;
+}
+
 .content-table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -8,7 +31,8 @@
     box-shadow: 0 0 30px rgba(0,0,0,0.3);
     color: white;
     position: absolute;
-    margin-left: 100px;
+    margin: 175px 0 0 95px;
+    width: 91vw;
 }
 
 .content-table thead tr {
