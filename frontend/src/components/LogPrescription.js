@@ -4,9 +4,12 @@ import "./LogPrescription.css";
 import { Link } from "react-router-dom";
 
 function LogPrescription(props) {
+
   const [prescList, setPrescList] = useState([]);
   const [drugList, setDrugList] = useState([]);
 
+  const [dob, setDob] = useState("");
+  const [ssn, setSsn] = useState("");
   const [prescriber, setPrescriber] = useState("");
   const [drug, setDrug] = useState("");
 
@@ -22,6 +25,14 @@ function LogPrescription(props) {
     });
   }, []);
 
+  const handleDobChange = (event) => {
+    setDob(event.target.value);
+  }
+
+  const handleSsnChange = (event) => {
+    setSsn(event.target.value);
+  }
+
   const handlePrescChange = (event) => {
     setPrescriber(event.target.value);
     console.log("prescriber changed");
@@ -36,6 +47,55 @@ function LogPrescription(props) {
     setIsRefill(!isRefill);
   };
 
+  // const submitCustomer = () => {
+  //   Axios.post("http://localhost:3002/api/create", {
+  //     FirstName: firstName,
+  //     LastName: lastName,
+  //     SSN: ssn,
+  //     Address: address,
+  //     DateOfBirth: dateOfBirth,
+  //   });
+  // };
+
+  const [newPrescriptID, setNewPrescriptID] = useState(0);
+  const getNewPrecID = () => {
+    //console.log("getNewPrecID Called");
+    Axios.get("http://localhost:3002/api/getLargestPrescription").then((response) => {
+      console.log("getNewPrecID Called: " + (response.data[0]["MAX(PrescriptionID)"] + 1));
+      setNewPrescriptID(response.data[0]["MAX(PrescriptionID)"] + 1);
+    });
+  }
+
+  function getCustomer(dateOfBirth, socialSecNum) {
+    Axios.get("http://localhost:3002/api/getCustomer", {
+      DateOfBirth: dateOfBirth,
+      SSN: socialSecNum
+    }).then((response) => {
+      return response.data.CustomerID
+    });
+  }
+
+  const [physID, setPhysID] = useState(0);
+  const getPhys = (SSN) => {
+    Axios.get(`http://localhost:3002/api/getPhysician/${SSN}`).then((response) => {
+      setPhysID(response.data.PrescriberID);
+    })
+  }
+
+  const logNewPrescription = (event) => {
+    event.preventDefault();
+    console.log("logNewPrescriber Called");
+    getNewPrecID(); // get the max prescription ID and add 1
+    getPhys(prescriber); // get prescriber ID from the physician using prescriber's SSN 
+
+    Axios.post("http://localhost:3002/api/createPrescription", {
+      PrescriptionID: newPrescriptID,
+      DrugID_P: drug,
+      PrescriberID_P: physID,
+      CustomerID_P: 1
+    });
+  }
+
   return (
     <div className="log-body">
       <div className="helmet">
@@ -49,9 +109,9 @@ function LogPrescription(props) {
           <h2>&emsp; Log Prescription &emsp;</h2>
           <br />
           Date of Birth:<br></br>
-          <input type="text" name="dob" /> <br></br>
+          <input type="text" name="dob" onChange={handleDobChange}/> <br></br>
           SSN: <br></br>
-          <input type="text" name="ssn" /> <br></br>
+          <input type="text" name="ssn" onChange={handleSsnChange}/> <br></br>
           Drug Name:<br></br>
           <select
             value={drug}
@@ -87,11 +147,12 @@ function LogPrescription(props) {
             />
           </label>
           <br></br>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onClick={logNewPrescription} onMouseOver={getNewPrecID(dob, ssn)}/>
           <p>
             Selected precriber = {prescriber} <br />
             Selected drug = {drug} <br />
-            Is Refill = {isRefill.toString()}
+            Is Refill = {isRefill.toString()} <br />
+            NewPresc = {newPrescriptID}
           </p>
         </div>
       </form>

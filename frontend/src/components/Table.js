@@ -4,28 +4,30 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Table(props) {
-  const [list, setList] = useState([
-    {
-      FirstName: "John",
-      LastName: "Doe",
-      DateOfBirth: "4-6-89",
-      Address: "2014 Forest Hills Drive",
-      SSN: "XXX-XX-XXXX",
-    },
-    {
-      FirstName: "Amiel",
-      LastName: "Vincent",
-      DateOfBirth: "4-28-99",
-      Address: "My house",
-      SSN: "XXX-XX-XXXX",
-    },
-  ]);
+  // const [list, setList] = useState([
+  //   {
+  //     FirstName: "John",
+  //     LastName: "Doe",
+  //     DateOfBirth: "4-6-89",
+  //     Address: "2014 Forest Hills Drive",
+  //     SSN: "XXX-XX-XXXX",
+  //   },
+  //   {
+  //     FirstName: "Amiel",
+  //     LastName: "Vincent",
+  //     DateOfBirth: "4-28-99",
+  //     Address: "My house",
+  //     SSN: "XXX-XX-XXXX",
+  //   },
+  // ]);
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:3002/api/getPeople").then((res) => {
-  //     setList(res.data);
-  //   });
-  // }, []);
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3002/api/getPeople").then((res) => {
+      setList(res.data);
+    });
+  }, []);
 
   if (props.table == "customer") {
     return (

@@ -52,6 +52,18 @@ app.get("/api/getPrescriberNames", (req, res) => {
     })
 })
 
+// get physician using ssn
+app.get("/api/getPhysician/:SSN", (req, res) => {
+    const SSN = req.params.SSN;
+    db.query("SELECT * FROM physician WHERE SSN_Phy=?", SSN, (err, result) => {
+        if (err) {
+            (console.log(err));
+        } else {
+            res.send(result);
+        }
+    })
+})
+
 // get drugs lmao
 app.get("/api/getDrugs", (req, res) => {
     db.query("SELECT * FROM drug_info", (err, result) => {
@@ -76,12 +88,12 @@ app.post('/api/create', (req, res) => {
             if (err) {
                 console.log(err)
             }
-            console.log(result)
+            console.log(result);
         });
 })
 
 // Log new prescription
-app.post('/api/createPresciption', (req, res) => {
+app.post('/api/createPrescription', (req, res) => {
     const prescription = req.body.PrescriptionID;
     const drug = req.body.DrugID_P;
     const prescriber = req.body.PrescriberID_P;
@@ -92,9 +104,36 @@ app.post('/api/createPresciption', (req, res) => {
             if (err) {
                 console.log(err)
             }
-            console.log(result)
+            console.log(result);
         });
 })
+
+// find greatest value
+app.get('/api/getLargestPrescription', (req, res) => {
+    db.query("SELECT MAX(PrescriptionID) FROM prescription_info",
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            }
+            res.send(result);
+        });
+})
+
+//get customer using DOB and SSN
+app.get('/api/getCustomer', (req, res) => {
+    const dob = req.body.DateOfBirth;
+    const ssn = req.body.SSN;
+
+    db.query("SELECT * FROM customer WHERE EXISTS ( SELECT * FROM person WHERE person.SSN = ? AND customer.SSN_C = ?)", [ssn, ssn],
+        (err, result) => {
+            if (err) {
+                (console.log(err));
+            }
+            res.send(result);
+            console.log(result);
+        })
+})
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`)
