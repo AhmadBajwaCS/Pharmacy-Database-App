@@ -76,6 +76,12 @@ input[type=submit] {
     box-sizing: border-box;
 }
 
+input[type=checkbox]{
+    width: 2vw;
+    height: 1.9vh;
+    box-sizing: border-box;
+}
+
 select {
 
     width: 58%;
