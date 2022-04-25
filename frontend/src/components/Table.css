@@ -10,10 +10,10 @@
     border-radius: 5px;
     color: #282c34;
     position: absolute;
-    width: 1735px;
+    width: 90vw;
     height: 8vh;
     font-size: 7vh;
-    margin: 90px 0 0 95px;
+    margin: 5vw 0 0 5vw;
 }
 
 .content-table {
@@ -27,7 +27,7 @@
     box-shadow: 0 0 30px rgba(0,0,0,0.3);
     color: white;
     position: absolute;
-    margin: 175px 0 0 95px;
+    margin: 20vh 0 0 5vw;
     width: 91vw;
     background-color: #282c34;
 }
