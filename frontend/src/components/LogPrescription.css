@@ -60,14 +60,14 @@ input[type=text] {
     /*border: none;*/
     background-color: #282424;
     height: 5%;
-    width: 10%;
-    padding: 0.4vh 13vh;
+    width: 40%;
+    text-decoration-width: 40px;
+    padding: 0.4vh 5vh;
     border-radius: 5px;
     margin: 0.7vh 0;
 }
 
 input[type=submit] {
-
 
     width: 40%;
     font-size: 2vh;
@@ -76,10 +76,16 @@ input[type=submit] {
     box-sizing: border-box;
 }
 
+input[type=checkbox]{
+    width: 2vw;
+    height: 1.9vh;
+    box-sizing: border-box;
+}
+
 select {
 
     width: 58%;
-    padding: 0.4vh 1vh;
+    padding: 0.4vh 0;
     margin: 0.7vh 0;
     box-sizing: border-box;
 }

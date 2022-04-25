@@ -19,11 +19,7 @@ function App() {
 
         {/* Tables */}
         {/* <Route path="/search" exact component={PickTable} /> */}
-        <Route
-          path="/search/customer"
-          exact
-          render={() => <Table table="customer" />}
-        />
+        <Route path="/search" exact render={() => <Table table="person" />} />
       </div>
     </body>
   );
