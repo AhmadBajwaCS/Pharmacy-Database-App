@@ -47,6 +47,11 @@
     background-color: rgba(0, 0, 0, 0.295);
 }
 
+.content-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.438);
+    color: rgb(111, 223, 111);
+}
+
 .content-table tbody tr:last-of-type {
     border-bottom: 1px solid black;
 }
