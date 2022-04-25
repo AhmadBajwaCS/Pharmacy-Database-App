@@ -6,6 +6,7 @@ import LogPrescription from "./components/LogPrescription";
 import Table from "./components/Table";
 import { Route } from "react-router-dom";
 import Quit from "./components/Quit";
+import PickTable from "./components/PickTable";
 
 function App() {
   return (
@@ -14,8 +15,15 @@ function App() {
         <Route path="/" exact component={HomePageButtons} />
         <Route path="/new" exact component={AddNewCustomer} />
         <Route path="/log" exact component={LogPrescription} />
-        <Route path="/search" exact component={Table} />
         <Route path="/quit" exact component={Quit} />
+
+        {/* Tables */}
+        {/* <Route path="/search" exact component={PickTable} /> */}
+        <Route
+          path="/search/customer"
+          exact
+          render={() => <Table table="customer" />}
+        />
       </div>
     </body>
   );
