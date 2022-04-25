@@ -88,11 +88,7 @@ function LogPrescription(props) {
           </label>
           <br></br>
           <input type="submit" value="Submit" />
-          <p>
-            Selected precriber = {prescriber} <br />
-            Selected drug = {drug} <br />
-            Is Refill = {isRefill.toString()}
-          </p>
+
         </div>
       </form>
     </div>
