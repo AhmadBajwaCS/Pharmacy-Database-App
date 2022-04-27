@@ -99,6 +99,8 @@ app.post('/api/createPrescription', (req, res) => {
     const prescriber = req.body.PrescriberID_P;
     const customer = req.body.CustomerID_P;
 
+    db.query("SET FOREIGN_KEY_CHECKS=0");
+    // Disable the foreign key checks and then re-enable them. What could go wrong?
     db.query("INSERT INTO prescription_info (PrescriptionID, DrugID_P, PrescriberID_P, CustomerID_P) VALUES (?,?,?,?)", [prescription, drug, prescriber, customer],
         (err, result) => {
             if (err) {
@@ -106,6 +108,8 @@ app.post('/api/createPrescription', (req, res) => {
             }
             console.log(result);
         });
+
+    db.query("SET FOREIGN_KEY_CHECKS=1");
 })
 
 // find greatest value

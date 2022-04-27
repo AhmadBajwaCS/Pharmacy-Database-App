@@ -35,6 +35,7 @@ function LogPrescription(props) {
 
   const handlePrescChange = (event) => {
     setPrescriber(event.target.value);
+    getPhys(prescriber);
     console.log("prescriber changed");
   };
 
@@ -78,7 +79,7 @@ function LogPrescription(props) {
   const [physID, setPhysID] = useState(0);
   const getPhys = (SSN) => {
     Axios.get(`http://localhost:3002/api/getPhysician/${SSN}`).then((response) => {
-      setPhysID(response.data.PrescriberID);
+      setPhysID(response.data[0].PrescriberID);
     })
   }
 
@@ -152,7 +153,8 @@ function LogPrescription(props) {
             Selected precriber = {prescriber} <br />
             Selected drug = {drug} <br />
             Is Refill = {isRefill.toString()} <br />
-            NewPresc = {newPrescriptID}
+            NewPrescriptionID = {newPrescriptID} <br />
+            PhysicianID/PrescriberID = {physID}
           </p>
         </div>
       </form>
