@@ -18,7 +18,7 @@ USE `part`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `customer` 
+-- Table structure for table `customer`
 --
 
 DROP TABLE IF EXISTS `customer`;
@@ -87,8 +87,7 @@ CREATE TABLE `drug_inventory` (
   `DrugID` int NOT NULL,
   PRIMARY KEY (`DrugID`),
   UNIQUE KEY `DrugID_UNIQUE` (`DrugID`),
-  KEY `Man_idx` (`ManufacturerID`),
-  CONSTRAINT `Man` FOREIGN KEY (`ManufacturerID`) REFERENCES `vendor` (`ManufacaturerID`)
+  KEY `Man_idx` (`ManufacturerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -252,4 +251,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-20 14:38:34
+-- Dump completed on 2022-04-20 14:59:22

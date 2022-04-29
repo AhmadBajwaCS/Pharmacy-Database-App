@@ -98,9 +98,23 @@ app.post('/api/createPrescription', (req, res) => {
     const drug = req.body.DrugID_P;
     const prescriber = req.body.PrescriberID_P;
     const customer = req.body.CustomerID_P;
+    const refillAllowed = req.body.IsRefillAllowed;
+    const isFilled = false;
 
-    db.query("SET FOREIGN_KEY_CHECKS=0");
+
     // Disable the foreign key checks and then re-enable them. What could go wrong?
+    db.query("SET FOREIGN_KEY_CHECKS=0");
+
+    // Log into prescription_status
+    db.query("INSERT INTO prescription_status (PrescriberID, CustomerID, DrugID, IsFilled, IsRefillAllowed) VALUES (?,?,?,?,?)", [prescriber, customer, drug, isFilled, refillAllowed],
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            }
+            console.log(result);
+        });
+
+    // Log into prescription_info
     db.query("INSERT INTO prescription_info (PrescriptionID, DrugID_P, PrescriberID_P, CustomerID_P) VALUES (?,?,?,?)", [prescription, drug, prescriber, customer],
         (err, result) => {
             if (err) {
@@ -108,6 +122,7 @@ app.post('/api/createPrescription', (req, res) => {
             }
             console.log(result);
         });
+
 
     db.query("SET FOREIGN_KEY_CHECKS=1");
 })
@@ -124,19 +139,33 @@ app.get('/api/getLargestPrescription', (req, res) => {
 })
 
 //get customer using DOB and SSN
-app.get('/api/getCustomer', (req, res) => {
-    const dob = req.body.DateOfBirth;
-    const ssn = req.body.SSN;
+app.get('/api/getCustomer/:SSN/:DOB', (req, res) => {
+    const dob = req.params.DOB;
+    const ssn = req.params.SSN;
 
-    db.query("SELECT * FROM customer WHERE EXISTS ( SELECT * FROM person WHERE person.SSN = ? AND customer.SSN_C = ?)", [ssn, ssn],
+    //db.query("SELECT customer.CustomerID FROM customer WHERE customer.SSN_C=?", ssn,
+
+    // I hate programming. I'm moving to the woods.
+    db.query("SELECT g.CustomerID FROM (SELECT customer.CustomerID, person.DateOfBirth, person.SSN FROM customer INNER JOIN person ON customer.SSN_C=person.SSN) AS g WHERE g.DateOfBirth=? AND g.SSN=?", [dob, ssn],
         (err, result) => {
             if (err) {
                 (console.log(err));
             }
             res.send(result);
             console.log(result);
-        })
+        });
 })
+
+// get all customers
+app.get("/api/getCustomers", (req, res) => {
+    db.query("SELECT * FROM customer",
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            }
+            res.send(result);
+        });
+});
 
 
 app.listen(PORT, () => {

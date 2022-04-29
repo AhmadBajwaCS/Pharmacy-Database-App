@@ -67,13 +67,17 @@ function LogPrescription(props) {
     });
   }
 
-  function getCustomer(dateOfBirth, socialSecNum) {
-    Axios.get("http://localhost:3002/api/getCustomer", {
-      DateOfBirth: dateOfBirth,
-      SSN: socialSecNum
-    }).then((response) => {
-      return response.data.CustomerID
-    });
+  const [customerID, setCustomerID] = useState(0);
+  const getCustomer = (dateOfBirth, socialSecNum) => {
+    if (socialSecNum != null) {
+      Axios.get(`http://localhost:3002/api/getCustomer/${socialSecNum}/${dateOfBirth}`).then((response) => {
+        console.log("customerID returned from call: " + response.data[0].CustomerID);
+        setCustomerID(response.data[0].CustomerID);
+      });
+    }
+    else {
+      console.log("socialSecNum = null")
+    }
   }
 
   const [physID, setPhysID] = useState(0);
@@ -88,12 +92,15 @@ function LogPrescription(props) {
     console.log("logNewPrescriber Called");
     getNewPrecID(); // get the max prescription ID and add 1
     getPhys(prescriber); // get prescriber ID from the physician using prescriber's SSN 
+    getCustomer(dob, ssn);
+
 
     Axios.post("http://localhost:3002/api/createPrescription", {
       PrescriptionID: newPrescriptID,
       DrugID_P: drug,
       PrescriberID_P: physID,
-      CustomerID_P: 1
+      CustomerID_P: customerID,
+      IsRefillAllowed: isRefill
     });
   }
 
@@ -156,6 +163,7 @@ function LogPrescription(props) {
             NewPrescriptionID = {newPrescriptID} <br />
             PhysicianID/PrescriberID = {physID}
           </p>
+          <input type="submit" value="Submit" onMouseOver={getCustomer(dob, ssn)}/>
         </div>
       </form>
     </div>
