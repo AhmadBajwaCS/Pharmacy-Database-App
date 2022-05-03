@@ -29,6 +29,28 @@ app.get("/api/getPrescribers", (req, res) => {
         });
 });
 
+// get all drug inv
+app.get("/api/getDrugInv", (req, res) => {
+    db.query("SELECT * FROM drug_inventory",
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            }
+            res.send(result)
+        });
+});
+
+// get all prescription status
+app.get("/api/getPrescStatus", (req, res) => {
+    db.query("SELECT * FROM prescription_status",
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            }
+            res.send(result)
+        });
+});
+
 // get person
 app.get("/api/getPerson/:id", (req, res) => {
     const id = req.params.id;

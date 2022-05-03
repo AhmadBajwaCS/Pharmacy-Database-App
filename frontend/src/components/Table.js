@@ -29,6 +29,20 @@ function Table(props) {
     });
   }, []);
 
+  const [drugInv, setDrugInv] = useState([]);
+  const getDrugInv = () => {
+    axios.get(`http://localhost:3002/api/getDrugInv`).then((response) => {
+      setDrugInv(response.data);
+    })
+  }
+
+  const [precStatus, setPrecStatus] = useState([]);
+  const getPrecStatus = () => {
+    axios.get(`http://localhost:3002/api/getPrescStatus`).then((response) => {
+      setPrecStatus(response.data);
+    })
+  }
+
   // Person
   if (props.table == "person") {
     return (
@@ -99,6 +113,7 @@ function Table(props) {
 
   // Prescription_Status
   if (props.table == "prescription_status") {
+    getPrecStatus();
     return (
       <div className="table-container">
         <Link to="/" className="no-text-decoration">
@@ -115,7 +130,7 @@ function Table(props) {
             </tr>
           </thead>
           <tbody>
-            {list.map((prescription_status) => {
+            {precStatus.map((prescription_status) => {
               return (
                 <tr>
                   <td>{prescription_status.DrugID}</td>
@@ -198,6 +213,7 @@ function Table(props) {
   }
   // Drug_Inventory
   if (props.table == "drug_inventory") {
+    getDrugInv();
     return (
       <div className="table-container">
         <Link to="/" className="no-text-decoration">
@@ -212,7 +228,7 @@ function Table(props) {
             </tr>
           </thead>
           <tbody>
-            {list.map((drug_inventory) => {
+            {drugInv.map((drug_inventory) => {
               return (
                 <tr>
                   <td>{drug_inventory.ManufacturerID}</td>
