@@ -2,25 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Table.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import SearchBar from "./SearchBar";
 
 function Table(props) {
-  // const [list, setList] = useState([
-  //   {
-  //     FirstName: "John",
-  //     LastName: "Doe",
-  //     DateOfBirth: "4-6-89",
-  //     Address: "2014 Forest Hills Drive",
-  //     SSN: "XXX-XX-XXXX",
-  //   },
-  //   {
-  //     FirstName: "Amiel",
-  //     LastName: "Vincent",
-  //     DateOfBirth: "4-28-99",
-  //     Address: "My house",
-  //     SSN: "XXX-XX-XXXX",
-  //   },
-  // ]);
-
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -33,15 +17,15 @@ function Table(props) {
   const getDrugInv = () => {
     axios.get(`http://localhost:3002/api/getDrugInv`).then((response) => {
       setDrugInv(response.data);
-    })
-  }
+    });
+  };
 
   const [precStatus, setPrecStatus] = useState([]);
   const getPrecStatus = () => {
     axios.get(`http://localhost:3002/api/getPrescStatus`).then((response) => {
       setPrecStatus(response.data);
-    })
-  }
+    });
+  };
 
   // Person
   if (props.table == "person") {
@@ -50,6 +34,7 @@ function Table(props) {
         <Link to="/" className="no-text-decoration">
           <h1 className="pharm-header">PHARMACY DB</h1>
         </Link>
+        <SearchBar name="hello" />
         <table className="content-table">
           <thead>
             <tr>
