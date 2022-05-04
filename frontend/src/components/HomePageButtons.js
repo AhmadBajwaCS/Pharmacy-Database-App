@@ -3,12 +3,11 @@ import "./HomePageButtons.css";
 import { Link } from "react-router-dom";
 
 function HomePageButtons(props) {
-
   return (
     <div className="homeDiv">
       <h1 className="head">&emsp; Pharmacy DB &emsp; </h1>
       <Link to="/search">
-        <button className="button">Search the database</button>
+        <button className="button">Search the Person Table</button>
       </Link>
       <Link to="/log">
         <button className="button">Log prescription</button>
@@ -22,8 +21,8 @@ function HomePageButtons(props) {
       <Link to="/new">
         <button className="button">Add new customer</button>
       </Link>
-      <Link to ="/quit">
-      <button className="button">Quit</button>
+      <Link to="/quit">
+        <button className="button">Quit</button>
       </Link>
     </div>
   );

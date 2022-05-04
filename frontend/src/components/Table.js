@@ -2,16 +2,35 @@ import React, { useState, useEffect } from "react";
 import "./Table.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import SearchBar from "./SearchBar";
 
 function Table(props) {
-  const [list, setList] = useState([]);
+  // delete this
+  const [list, setList] = useState([
+    {
+      FirstName: "John",
+      LastName: "Doe",
+      DateOfBirth: "4-6-89",
+      Address: "2014 Forest Hills Drive",
+      SSN: "XXX-XX-XXXX",
+    },
+    {
+      FirstName: "Amiel",
+      LastName: "Vincent",
+      DateOfBirth: "4-28-99",
+      Address: "My house",
+      SSN: "XXX-XX-XXXX",
+    },
+  ]);
 
-  useEffect(() => {
-    axios.get("http://localhost:3002/api/getPeople").then((res) => {
-      setList(res.data);
-    });
-  }, []);
+  const [person, setPerson] = useState(list);
+
+  // see if this works
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:3002/api/getPeople").then((res) => {
+  //     setList(res.data);
+  //   });
+  // }, []);
 
   const [drugInv, setDrugInv] = useState([]);
   const getDrugInv = () => {
@@ -27,6 +46,24 @@ function Table(props) {
     });
   };
 
+  // search function
+
+  function searchByFirstName(event) {
+    for (let i = 0; i < event.target.value.length; i++) {
+      setPerson(
+        list.filter(
+          (person) =>
+            person.FirstName.charAt(i).toLowerCase() ==
+            event.target.value.charAt(i).toLowerCase()
+        )
+      );
+    }
+
+    if (event.target.value == "") {
+      setPerson(list);
+    }
+  }
+
   // Person
   if (props.table == "person") {
     return (
@@ -34,7 +71,16 @@ function Table(props) {
         <Link to="/" className="no-text-decoration">
           <h1 className="pharm-header">PHARMACY DB</h1>
         </Link>
-        <SearchBar name="hello" />
+
+        <div className="search-bar">
+          <input
+            type="text"
+            onChange={searchByFirstName}
+            placeholder="Search By Name"
+            className="search-input"
+          ></input>
+        </div>
+
         <table className="content-table">
           <thead>
             <tr>
@@ -45,7 +91,7 @@ function Table(props) {
             </tr>
           </thead>
           <tbody>
-            {list.map((person) => {
+            {person.map((person) => {
               return (
                 <tr>
                   <td>

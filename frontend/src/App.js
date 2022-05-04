@@ -6,7 +6,6 @@ import LogPrescription from "./components/LogPrescription";
 import Table from "./components/Table";
 import { Route } from "react-router-dom";
 import Quit from "./components/Quit";
-import SearchBar from "./components/SearchBar";
 
 function App() {
   return (

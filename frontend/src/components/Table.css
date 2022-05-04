@@ -1,6 +1,6 @@
 .table-container {
     position: relative;
-    background-color: white; 
+    background-color: #282c34; 
     display: flex;
     flex-direction: column;   
 }
@@ -26,7 +26,7 @@
     box-shadow: 0 0 30px rgba(0,0,0,0.3);
     color: white;
     position: absolute;
-    margin: 20vh 0 0 5vw;
+    margin: 30vh 0 0 5vw;
     width: 90.5vw;
     background-color: #282c34;
 }
@@ -57,4 +57,20 @@
 
 .content-table tbody tr.active-row {
     font-weight: bold;
+}
+
+.search-bar {
+    margin-top: 22vh;
+    margin-left: 5vw;
+    background-color: #282c34;
+    width: 18vw;
+}
+
+.search-input {
+    background-color: white;
+    text-align: left;
+}
+
+.search-input::placeholder {
+    color: rgb(94, 94, 94);
 }
