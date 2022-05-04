@@ -6,7 +6,6 @@ import LogPrescription from "./components/LogPrescription";
 import Table from "./components/Table";
 import { Route } from "react-router-dom";
 import Quit from "./components/Quit";
-import PickTable from "./components/PickTable";
 
 function App() {
   return (
@@ -17,11 +16,17 @@ function App() {
         <Route path="/log" exact component={LogPrescription} />
         <Route path="/quit" exact component={Quit} />
 
-        {/* Tables */}
-        {/* <Route path="/search" exact component={PickTable} /> */}
         <Route path="/search" exact render={() => <Table table="person" />} />
-        <Route path="/tracker" exact render={() => <Table table="prescription_status" />} />
-        <Route path="/drug-inventory" exact render={() => <Table table="drug_inventory" />} />
+        <Route
+          path="/tracker"
+          exact
+          render={() => <Table table="prescription_status" />}
+        />
+        <Route
+          path="/drug-inventory"
+          exact
+          render={() => <Table table="drug_inventory" />}
+        />
       </div>
     </body>
   );

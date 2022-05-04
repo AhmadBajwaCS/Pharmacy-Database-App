@@ -4,43 +4,64 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Table(props) {
-  // const [list, setList] = useState([
-  //   {
-  //     FirstName: "John",
-  //     LastName: "Doe",
-  //     DateOfBirth: "4-6-89",
-  //     Address: "2014 Forest Hills Drive",
-  //     SSN: "XXX-XX-XXXX",
-  //   },
-  //   {
-  //     FirstName: "Amiel",
-  //     LastName: "Vincent",
-  //     DateOfBirth: "4-28-99",
-  //     Address: "My house",
-  //     SSN: "XXX-XX-XXXX",
-  //   },
-  // ]);
+  // delete this
+  const [list, setList] = useState([
+    {
+      FirstName: "John",
+      LastName: "Doe",
+      DateOfBirth: "4-6-89",
+      Address: "2014 Forest Hills Drive",
+      SSN: "XXX-XX-XXXX",
+    },
+    {
+      FirstName: "Amiel",
+      LastName: "Vincent",
+      DateOfBirth: "4-28-99",
+      Address: "My house",
+      SSN: "XXX-XX-XXXX",
+    },
+  ]);
 
-  const [list, setList] = useState([]);
+  const [person, setPerson] = useState(list);
 
-  useEffect(() => {
-    axios.get("http://localhost:3002/api/getPeople").then((res) => {
-      setList(res.data);
-    });
-  }, []);
+  // see if this works
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:3002/api/getPeople").then((res) => {
+  //     setList(res.data);
+  //   });
+  // }, []);
 
   const [drugInv, setDrugInv] = useState([]);
   const getDrugInv = () => {
     axios.get(`http://localhost:3002/api/getDrugInv`).then((response) => {
       setDrugInv(response.data);
-    })
-  }
+    });
+  };
 
   const [precStatus, setPrecStatus] = useState([]);
   const getPrecStatus = () => {
     axios.get(`http://localhost:3002/api/getPrescStatus`).then((response) => {
       setPrecStatus(response.data);
-    })
+    });
+  };
+
+  // search function
+
+  function searchByFirstName(event) {
+    for (let i = 0; i < event.target.value.length; i++) {
+      setPerson(
+        list.filter(
+          (person) =>
+            person.FirstName.charAt(i).toLowerCase() ==
+            event.target.value.charAt(i).toLowerCase()
+        )
+      );
+    }
+
+    if (event.target.value == "") {
+      setPerson(list);
+    }
   }
 
   // Person
@@ -50,6 +71,16 @@ function Table(props) {
         <Link to="/" className="no-text-decoration">
           <h1 className="pharm-header">PHARMACY DB</h1>
         </Link>
+
+        <div className="search-bar">
+          <input
+            type="text"
+            onChange={searchByFirstName}
+            placeholder="Search By Name"
+            className="search-input"
+          ></input>
+        </div>
+
         <table className="content-table">
           <thead>
             <tr>
@@ -60,7 +91,7 @@ function Table(props) {
             </tr>
           </thead>
           <tbody>
-            {list.map((person) => {
+            {person.map((person) => {
               return (
                 <tr>
                   <td>
